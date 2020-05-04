@@ -37,7 +37,7 @@
                 url:"registrar_mensaje",   //la ruta que damos en flask a guardar los mensajes, donde va a enviar los datos
                 data: {nom:nombre, mesj:mensaje},  //los datos que vamos a pasar
                 success: function(res) {
-                	$("#mensaje").val('')   #borro el campo del mensaje al enviarlo
+                	$("#mensaje").val('')   //borro el campo del mensaje al enviarlo
                     if (res != "ok") {
                         alert("Error en el envío de mensaje")
                     }
