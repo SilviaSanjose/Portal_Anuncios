@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    background-color: #f2e8e8;
+}
+header {
+    background-image: url("/static/img/index.jpg");
+    background-size: cover;
+    height: 130px;
+}
+header h1{
+    color: #fffbfe;
+    margin: 0;
+}
+div {
+    margin-top: 5px;
+}
+h1{
+    color: #417db0;
+}
+form {
+	width: 60%;
+    margin: 20px;
+    background-color: #effaf5;
+}
+label {
+    display: inline-block;
+    width: 80px;
+    margin-top: 10px;
+}
+.nombre input, .categoria input, .contacto input {
+	    width: 221px;
+}
+.precio input {
+	width: 63px;
+}
+.descripcion label{
+    vertical-align: top;
+}
+textarea {
+    width: 387px;
+    height: 90px;
+}
+.imagen {
+    margin-top: 27px;
+}
+button {
+    margin: 36px 0 25px 204px;
+    padding: 9px;
+}

@@ -1,0 +1,44 @@
+body {
+	margin: 0;
+	background-color: #f2e8e8;
+}
+header {
+    background-image: url("/static/img/area-interna.jpg");
+    background-size: cover;
+    height: 139px;
+    background-position-y: center;
+}
+header h2 {
+    margin: 0;
+    color: #fffbfe;
+    padding: 22px 0 0 19px;
+}
+h3 {
+    margin-left: 20px;
+}
+form {
+	width: 60%;
+    margin: 42px;
+    background-color: #effaf5;
+}
+
+.nombre input, .categoria input, .contacto input {
+    width: 221px;
+}
+.precio input {
+width: 63px;
+}
+.descripcion label{
+vertical-align: top;
+}
+textarea {
+width: 387px;
+height: 90px;
+}
+.imagen {
+margin-top: 27px;
+}
+button {
+margin: 36px 0 25px 204px;
+padding: 9px;
+}

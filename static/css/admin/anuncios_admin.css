@@ -1,0 +1,53 @@
+body {
+	margin: 0;
+	background-color: #f2e8e8;
+}
+header {
+    background-image: url("/static/img/area-interna.jpg");
+    background-size: cover;
+    height: 139px;
+    background-position-y: center;
+}
+header h2 {
+    margin: 0;
+    color: #fffbfe;
+    padding: 22px 0 0 19px;
+}
+header h3 a {
+    color: #fffbfe;
+}
+header h3 {
+    margin: 64px 20px 0;
+    text-align: right;
+}
+main {
+    margin-left: 24px;
+}
+section h5 {
+    margin: 0;
+    font-size: 16px;
+}
+section div:first-child {
+    margin: 40px 0;
+}
+section .text {
+    display: inline-block;
+    vertical-align: middle;
+}
+section img {
+    display: inline-block;
+    width: 88px;
+    height: 120px;
+    vertical-align: middle;
+}
+section p {
+    margin: 10px 31px 10px;
+}
+section a {
+    text-decoration: none;
+}
+section {
+    display: none;
+    margin: 0 10%;
+    text-align: center;
+}

@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    background-color: #f2e8e8;
+}
+header {
+    background-image: url("/static/img/index.jpg");
+    background-size: cover;
+    height: 130px;
+}
+header h1{
+    color: #fffbfe;
+    margin: 0;
+}
+h2 {
+	background-color: #66eae1;
+    color: red;
+    width: 490px;
+    margin: 20px auto;
+    padding: 20px;
+}
+h3 {
+	color: red;
+    margin: auto;
+    width: 449px;
+}
+ul {
+	margin-top: 58px;
+    font-size: 23px;
+}
+ul a {
+	text-decoration: none;
+}

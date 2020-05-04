@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+    background-color: #f2e8e8;
+}
+header {
+    background-image: url("/static/img/index.jpg");
+    background-size: cover;
+    height: 281px;
+}
+header h1{
+    color: #fffbfe;
+    margin: 0;
+}
+h2, a {
+    color: #417db0;
+    padding: 20px;
+}
