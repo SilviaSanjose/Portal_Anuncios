@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Acceso</title>
+<link rel="stylesheet" href="{{ url_for('static', filename ='css/admin/login.css') }}" >
+</head>
+<body>
+    <header>
+        <h2>ZONA<br/>ADMINISTRADOR</h2>
+    </header>
+    <main>
+        <h2>Accede</h2>
+        <div class="error">{{ error }}</div>
+        <form action="login" method="post">
+            <label>Usuario</label>
+            <input type="text" name ="user" required pattern="^[a-z0-9_]{2,20}$" title="usuario no válido"/>
+            <label>Contraseña</label>
+            <input type="password" name="passwd" required/>
+            <button type="submit">ENTRAR</button>
+            
+        </form>
+    </main>
+</body>
+</html>

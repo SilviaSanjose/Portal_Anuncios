@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Administración</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename ='css/admin/anuncios_admin.css') }}" >
+    <script lang="javascript" src="{{ url_for('static', filename ='js/admin/listado_anuncios_admin.js') }}"></script>
+</head>
+<body>
+    <header>
+        <h2>ADMINISTRACION</h2>
+        <h3><a href="cerrar_sesion">CERRAR SESION</a></h3>
+    </header>
+    <main>
+        <h3>Gestión de anuncios</h3>
+        <form action="seleccion-anuncio">
+            <select name="tipo_anuncio" onchange="mostrarAnuncio()" id="select_comercials">
+                <option value="select">Selecciona</option>
+                <option value="validado">Validados</option>
+                <option value="no_validado">No validados</option>
+            </select>
+        </form>
+        <section class= "validados" id="anuncios_validados">
+            <h3>Anuncios validados</h3>
+            {% for a in anuncios %}
+                <div>
+                    <div class="text">
+                        <h5>{{ a [1] }}</h5>
+                        <p>Categoría: {{ a[2] }}</p>
+                        <p>Contacto: {{ a[6] }}</p>
+                        <button><a href="borrar?id={{ a[0] }}" onclick="return confirm('¿Estas seguro de borrar el anuncio?');"> Borrar</a></button>
+                        <!--Damos al enlace borrar: ?(indica informacion adicional) y le damos el id de cada anuncio-->
+                        <button><a href="editar?id={{ a[0] }}">Editar</a></button>
+                    </div>
+                    <img src="/static/img_anuncios/{{ a [0] }}.jpg" onerror="this.src='/static/img/sin_imagen.png'";/>
+                </div>
+            {% endfor %}
+        </section>
+        <section class="no_validados" id="anuncios_no_validados">
+            <h3>Anuncios no validados</h3>
+            {% for a in pendientes %}
+                <div>
+                    <div class="text">
+                        <h5>{{ a [1] }}</h5>
+                        <p>Categoría: {{ a[2] }}</p>
+                        <p>Contacto: {{ a[6] }}</p>
+                        <button><a href="borrar?id={{ a[0] }}" onclick="return confirm('¿Estas seguro de borrar el anuncio?');"> Borrar</a></button>
+                        <button><a href="editar?id={{ a[0] }}">Editar</a></button>
+                    </div>
+                    <img src="/static/img_anuncios/{{ a [0] }}.jpg" onerror="this.src='/static/img/sin_imagen.png'";/>
+                </div>
+            {% endfor %}
+        </section>
+    </main>
+</body>
+</html>

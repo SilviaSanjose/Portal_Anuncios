@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hasta Pronto!!</title>
+<link rel="stylesheet" href="{{ url_for('static', filename ='css/admin/cierre_sesion.css') }}" >
+</head>
+<body>
+    <header>
+        <h2>ZONA<br/>ADMINISTRADOR</h2>
+    </header>
+    <h2>Hasta pronto {{ user }} !!</h2>
+    <div><a href="/admin" >Volver al acceso de admistradores</a></div>
+    <div><a href="/" >Volver al home público</a></div>
+
+</body>
+</html>

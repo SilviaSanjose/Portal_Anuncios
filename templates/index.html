@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Mis Productos</title>
+<link rel="stylesheet" href="{{ url_for('static', filename ='css/index.css') }}" >
+</head>
+<body>
+    <header>
+        <h1>CREATIVE</h1>
+    </header>
+    <ul class = "menu">
+        <li><a href="registro-anuncio"> REGISTRAR ANUNCIO</a></li>
+        <li><a href="chat"> CHAT</a></li>
+    </ul>
+    <div class="articulos">
+        <h3>Listado de productos</h3>
+         
+        {% for a in anuncios %}
+            <div class="anuncio">
+                <ul><b> {{a[1]}} </b>
+                    <li>Categoría: {{ a[2] }}</li>
+                    <li>Precio: {{ a[3]}}</li>
+                    <li>Descripción:<br/>{{ a[4] }}</li>
+                    <li>Envío: {{ a[5] }}</li>
+                    <li>Anuncio validado</li>
+                </ul>
+                <div><img src="static/img_anuncios/{{ a[0] }}.jpg" onerror="this.src='static/img/sin_imagen.png'";/></div>
+            </div>
+        {% endfor %}
+    </div>
+
+</body>
+</html>

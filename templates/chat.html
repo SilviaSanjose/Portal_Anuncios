@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Chat</title>
+<link rel="stylesheet" href="{{ url_for('static', filename ='css/chat.css') }}" >
+</head>
+<body>
+    <header>
+        <h1>CREATIVE</h1>
+    </header>
+    <h2>Chatea con nosotros</h2>
+    <form>
+        <div class="usuario">
+            <div class="nombre">
+                <label>Nombre</label>
+                <input type="text" name="nombre" id="nombre">
+            </div>
+            <div class="mensaje">
+                <label>Mensaje</label>
+                <textarea name="mensaje" id="mensaje"></textarea>
+            </div>
+            <button id="enviar_mensaje" type="button" value="envio_mensaje">ENVIAR</button>
+        </div> 
+        <textarea class="mensajes_chat" id="mensajes_chat"></textarea>
+    </form>
+    
+
+    <script type="text/javascript" src="static/jquery.js"></script>
+    <script type="text/javascript">
+
+        // Función para recoger los datos del formulario y mandarlos a flask app
+        $("#enviar_mensaje").click(function(){
+            nombre = $("#nombre").val()       //recogo value de los input
+            mensaje = $("#mensaje").val()
+            $.ajax ({
+                url:"registrar_mensaje",   //la ruta que damos en flask a guardar los mensajes, donde va a enviar los datos
+                data: {nom:nombre, mesj:mensaje},  //los datos que vamos a pasar
+                success: function(res) {
+                	$("#mensaje").val('')   #borro el campo del mensaje al enviarlo
+                    if (res != "ok") {
+                        alert("Error en el envío de mensaje")
+                    }
+                }
+            })     
+        })
+
+        //función para actualizar los mensajes
+        function refrescar(){
+            ahora = new Date();
+            //pedimos json desde jquery, en vez de con ajax, jquery nos da la funcion directamente:
+            $.getJSON("obtener_mensajes", function(res){
+                text =""
+                for (indice in res){
+                    text += res[indice][1] + ": " + res[indice][2] + "\n";
+                }
+                $("#mensajes_chat").html(text);  //indicar que lo mueste en el textarea
+            })
+        }
+        //Refrescar la función para quie vuelque los mensajes cada 3 segundos
+        setInterval(refrescar, 3000);
+
+
+    </script> 
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Edición Anuncio</title>
+<link rel="stylesheet" href="{{ url_for('static', filename ='css/admin/editar_anuncio.css') }}" >
+</head>
+<body>
+    <header>
+        <h2>ADMINISTRACION</h2>
+    </header>
+    <main>
+        <h3>Actualiza el anuncio</h3>
+        <form action= "guardar-anuncio"  method="POST" enctype="multipart/form-data">
+            <fieldset>
+            <div class="nombre">
+                <label for="nombre">Nombre</label>
+                <input type="text" name= "nombre" value="{{ anuncio.nombre }}" pattern="^[a-zA-Z0-9 ñNÁÉÍÓÚáéíó]{4,40}$" title="Letras o números entre 4 y 40 caracteres"/>
+            </div>
+            <div class="categoria">
+                <label for="categoria">Categoría</label>
+                <select name= "categoria">
+                    <option value="anuncio">Selecciona</option>
+                    {% for c in categorias %}
+                        <option value="{{ c[0]}}">{{ c[1]}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="precio">
+                <label for="precio">Precio</label>
+                <input type="text" name= "precio" value="{{ anuncio.precio }}"required pattern="^[0-9,]+(.[0-9]{2})?$"/>
+            </div>
+            <div class="descripcion">
+                <label for="descripcion">Descripción</label>
+                <textarea name= "descripcion"  maxlength="300" placeholder="Máximo 300 caracteres">{{ anuncio.descripcion }}</textarea>
+            </div>
+            <div>
+                <label for="envio">Envío</label>
+                <input type="radio" name= "envio" value= "Si" required>Si</input>
+                <input type="radio" name= "envio" value= "No">No</input>
+            </div>
+            <div class="contacto">
+                <label for="contacto">Contacto</label>
+                <input type="email" id="email" name= "contacto" value="{{ anuncio.contacto }}" placeholder="Introduce tu email" required pattern="^[(a-z0-9\_\-\.)]+@[(a-z0-9\_\-\.)]+\.[(a-z)]{2,5}$"/>
+            </div>
+            <div class="imagen">
+                <input type="file" name="img_file">
+            </div>
+            <input type="hidden" name="id" value="{{anuncio.num_id}}"/>
+            <button type="submit">REGISTRAR</button>
+            </fieldset>
+        </form>
+    </main>     
+</body>
+</html>
