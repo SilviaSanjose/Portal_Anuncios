@@ -70,17 +70,25 @@ def administracion(ruta):
         descripcion = request.form["descripcion"]
         envio = request.form["envio"]
         contacto = request.form["contacto"]
+        if validar_nombre(nombre) and validar_precio(precio) and validar_contacto(contacto):
         #creo el nuevo objeto con los datos recibidos
-        anuncio_nuevo = Anuncio(nombre, categoria, precio, descripcion, envio, contacto, id_guardar)
-        operaciones_db.guardar_anuncio_editado(anuncio_nuevo)
+            anuncio_nuevo = Anuncio(nombre, categoria, precio, descripcion, envio, contacto, id_guardar)
+            operaciones_db.guardar_anuncio_editado(anuncio_nuevo)
+            
+            #asignamos nueva imagen en caso de que la suba
+            imagen = request.files["img_file"]
+            imagen.save("static/img_anuncios/" +str(id_guardar) + ".jpg")
+    
+            anuncios = operaciones_db.listar_anuncios() 
+            pendientes = operaciones_db.listar_anuncios_pendientes()
+            return render_template("admin/listado_anuncios_admin.html", anuncios= anuncios, pendientes=pendientes)
+        else: 
+            return render_template("admin/listado_anuncios_admin.html")
         
-        #asignamos nueva imagen en caso de que la suba
-        imagen = request.files["img_file"]
-        imagen.save("static/img_anuncios/" +str(id_guardar) + ".jpg")
-
-        anuncios = operaciones_db.listar_anuncios() 
-        pendientes = operaciones_db.listar_anuncios_pendientes()
-        return render_template("admin/listado_anuncios_admin.html", anuncios= anuncios, pendientes=pendientes)
+    if ruta == "cerrar_sesion":
+        user = session["identificado"]
+        session.clear()
+        return render_template("admin/cierre_sesion.html", user = user)
     
     if ruta == "cerrar_sesion":
         user = session["identificado"]
