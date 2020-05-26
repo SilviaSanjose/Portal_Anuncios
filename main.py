@@ -16,8 +16,8 @@ app = Flask(__name__)
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'pideseloasilvi@gmail.com'
-app.config['MAIL_PASSWORD'] = 'tknqxsxkiiiucncd'
+app.config['MAIL_USERNAME'] = 'xxxxxxxxx@gmail.com'
+app.config['MAIL_PASSWORD'] = 'xxxxxxxxxxxx'
 mail = Mail(app)
 
 #control de sesiones:
